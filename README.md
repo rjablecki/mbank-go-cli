@@ -36,11 +36,15 @@ App require env variable with name `MBANK_CREDENTIALS`. It is base64 encoded jso
 
 ### How to get your own credentials
 
+Create file `my-credentials.json` with content like upper JSON example,or use repository files:
+
 ```bash
+git clone git@github.com:rjablecki/mbank-go-cli.git
+cd mbank-go-cli
 cp credentials.json my-credentials.json 
 ```
 
-Go to https://online.mbank.pl/pl/Login in browser and run F12 to open dev tools. Click `Preserve log` checkbox to prevent clear requests after page refresh.
+Go to https://online.mbank.pl/pl/Login in browser and run `F12` to open dev tools. Click `Preserve log` checkbox to prevent clear requests after page refresh.
 
 ![Alt text](doc/mbank1.png)
 
@@ -58,10 +62,8 @@ Click next tab `Payload` and here you find data to fill `Id` `Pass` and `Dfp`
 Go to console and type `navigator.userAgent` to get your userAgent.
 
 
-After fill data in `my-credentials.json` you can finally create final app credentials - `.env.local`
+After fill data in `my-credentials.json` you can finally create app credentials - `.env.local`
 
 ```bash
 echo MBANK_CREDENTIALS=$(cat my-credentials.json | base64 -w 0) > .env.local
 ```
-
-
