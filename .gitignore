@@ -1,0 +1,7 @@
+app
+dto
+
+.my-credentials.json
+.env.local
+.vscode
+.dev/
